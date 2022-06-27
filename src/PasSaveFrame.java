@@ -5,41 +5,27 @@ import java.awt.event.ActionListener;
 
 public class PasSaveFrame extends JFrame {
 
+    JLabel labelForBackground;
     int frameWidth ;
     int frameHeight ;
 
     public PasSaveFrame() throws HeadlessException {
+        super("PasSaVe");
+
 
     }
 
     public void startFrame(int frameHeight, int frameWidth){
-        ImageIcon image = new ImageIcon("D:\\MY-DEV\\PaSSave\\PasSsave\\resources\\background.jpg");
-        JLabel background = new JLabel("",image,JLabel.CENTER);
-        background.setBounds(0,0,300,800);
-        background.setLayout(null);
+        ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("resources/icons(passave).png"));
+        setIconImage(icon.getImage());
+
+        ImageIcon imageBackground = new ImageIcon(getClass().getClassLoader().getResource("resources/background(500x800).jpg"));
+        labelForBackground = new JLabel(imageBackground);
+        labelForBackground.setSize(500,800);
+
 
         this.frameHeight = frameHeight;
         this.frameWidth = frameWidth;
-
-        JPanel panel = new JPanel();
-        Button buttonSearch = new Button("search");
-
-        buttonSearch.setVisible(true);
-        buttonSearch.setBounds(100,300,100,30);
-        panel.add(buttonSearch);
-        panel.setLayout(null);
-
-
-        add(background);
-        getContentPane().add(panel);
-
-
-        buttonSearch.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(this.getClass().getClassLoader().getResource(""));
-            }
-        });
 
         setSize(frameWidth,frameHeight);
         setLocationRelativeTo(null);
